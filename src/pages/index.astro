@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Preloader from '../components/Preloader/Preloader';
 ---
 
 <Layout>
-	
+	<Preloader client:only="react" active={true} />
 </Layout>

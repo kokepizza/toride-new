@@ -1,0 +1,28 @@
+.preloader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    background-color: var(--main-color);
+    z-index: 9999;
+}
+
+.logo_preloader {
+    width: 50vw;
+}
+
+@media (min-width: 768px) {
+    .logo_preloader {
+        width: 30vw;
+    }
+}
+
+@media (min-width: 1024px) {
+    .logo_preloader {
+        width: 20vw;
+    }
+}
