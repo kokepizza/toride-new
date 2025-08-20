@@ -1,0 +1,287 @@
+/* RESET */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    all: unset;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Tipografía D-DIN */
+
+/* Regular */
+@font-face {
+  font-family: 'D-DIN';
+  src: url('/fonts/D-DIN.woff2') format('woff2'),
+       url('/fonts/D-DIN.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'D-DIN';
+  src: url('/fonts/D-DIN-Bold.woff2') format('woff2'),
+       url('/fonts/D-DIN-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Condensed Regular */
+@font-face {
+  font-family: 'D-DIN Condensed';
+  src: url('/fonts/D-DINCondensed.woff2') format('woff2'),
+       url('/fonts/D-DINCondensed.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Condensed Bold */
+@font-face {
+  font-family: 'D-DIN Condensed';
+  src: url('/fonts/D-DINCondensed-Bold.woff2') format('woff2'),
+       url('/fonts/D-DINCondensed-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* View Transition */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(*) {
+  animation-duration: 1s;
+}
+
+/* Estilos base */
+:root {
+  --main-color: #E8C733;
+  --black: #1d1d1b;
+  --white: white;
+  --peques: #00B0F0;
+  --infantil: #4d9e45;
+  --junior: #D32F2F;
+  --senior: #6A1B9A;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --padding-x: 2.5rem;
+    --padding-y: 3.5rem;
+  }
+}
+  
+@media (min-width: 1024px) {
+  :root {
+    --padding-x: 4rem;
+    --padding-y: 5rem;
+  }
+}
+
+html {
+  font-family: 'D-DIN', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--black);
+  background-color: var(--white);
+}
+
+::selection {
+  background-color: var(--main-color);
+  color: var(--black);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'D-DIN Condensed', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: .9;
+  text-wrap: balance;
+}
+
+h1, h2 {
+  padding: 0 0 1rem;
+}
+
+@media (min-width: 768px) {
+  h1, h2 {
+    padding: 0 0 2rem;
+  }
+}
+
+h1 {
+  font-size: 12vw;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: clamp(2rem, 8vw, 8rem);
+  }
+}
+
+h2 {
+  font-size: 10vw;
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: clamp(1.5rem, 5vw, 5rem);
+  }
+}
+
+h3 {
+  font-size: 6vw;
+}
+
+@media (min-width: 768px) {
+  h3 {
+    font-size: 3vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  h3 {
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+}
+
+/* LAYOUT */
+
+.section {
+  padding: var(--padding-y) var(--padding-x);
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.rounded {
+  border-radius: 0 0 4rem 4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.image {
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.ar-9-14 {
+  aspect-ratio: 9 / 14;
+}
+  
+@media (min-width: 1024px) {
+  .ar-9-14 {
+    aspect-ratio: unset;
+    height: 500px;
+  }
+}
+  
+.ar-9-14 img {
+  filter: grayscale(100%);
+}
+  
+.image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+}
+  
+@media (min-width: 768px) {
+  .image::after {
+    border-radius: 1.5rem;
+  }
+}
+
+/* IMAGE FULL-WIDTH */
+
+.full-img {
+  grid-column: span 4;
+  aspect-ratio: 16 / 9;
+}
+
+@media (min-width: 768px) {
+  .full-img {
+    grid-column: span 8;
+  }
+}
+
+@media (min-width: 1024px) {
+  .full-img {
+    grid-column: 2 / span 10;
+  }
+}
+
+.contain {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.cover {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.fill {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+@media (min-width: 768px) {
+  .contain, .cover, .fill {
+      border-radius: 1.5rem;
+  }
+}
