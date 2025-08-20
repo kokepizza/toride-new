@@ -1,0 +1,83 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background-color: var(--main-color);
+    padding: 1rem 2rem;
+    overflow: hidden;
+}
+  
+.footer ::selection {
+    background-color: var(--black);
+    color: var(--main-color);
+}
+  
+.footer svg {
+    width: 60px;
+    height: auto;
+}
+
+.footer svg .toride-circle {
+    transform-origin: center center;
+    animation: spin 12s linear infinite;
+}
+  
+.footer a {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    color: var(--black);
+    font-family: 'D-DIN Condensed', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--black);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    z-index: 2;
+    font-size: 14px;
+}
+  
+.footer a:hover {
+    background-color: var(--black);
+    color: var(--main-color);
+}
+  
+.footer p {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5%;
+    color: var(--black);
+    font-size: 12px;
+    white-space: nowrap;
+}
+  
+@media (min-width: 768px) {
+    .footer svg {
+      width: 100px;
+    }
+
+    .footer a {
+        font-size: 1rem;
+    }
+  
+    .footer p {
+      font-size: 1rem;
+    }
+  
+    .footer {
+      padding: 2rem 5rem !important;
+    }
+}
+  
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
