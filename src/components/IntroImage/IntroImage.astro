@@ -1,0 +1,23 @@
+---
+import "./intro-image.css"
+
+const {
+  title = "Título por defecto",
+  subtitle = "Subtítulo por defecto",
+  content = "",
+  image = "" // ruta de la imagen
+} = Astro.props;
+---
+
+<section class="section grid">
+  <div class="intro">
+    {subtitle && <p class="subtitle">{subtitle}</p>}
+    {title && <h2>{title}</h2>}
+    {content && <p>{content}</p>}
+  </div>
+  {image && (
+    <div class="image intro-img">
+      <img src={image} alt={title} class="cover" />
+    </div>
+  )}
+</section>

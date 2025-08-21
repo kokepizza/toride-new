@@ -1,0 +1,25 @@
+.intro-center {
+    text-align: center;
+    text-wrap: balance;
+    grid-column: span 4;
+}
+
+.subtitle {
+    font-family: 'D-DIN Condensed';
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    color: var(--main-color);
+    padding-bottom: .5rem;
+}
+
+@media (min-width:768px){
+    .intro-center {
+        grid-column: 2 / span 6;
+    }
+}
+
+@media (min-width:1024px){
+    .intro-center {
+        grid-column: 4 / span 6;
+    }
+}

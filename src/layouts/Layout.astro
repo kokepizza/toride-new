@@ -35,15 +35,22 @@ const { title = "Toride", description = "Descripción breve de la página web pa
 <style>
     body {
         margin: 0;
-        min-height: 200vh;
         background-image: url("https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1600&q=80");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        position: relative;
     }
 
     main {
         position: relative;
-        z-index: 1;
+        z-index: 5;
+        margin-bottom: 95px;
+    }
+
+    @media (min-width: 768px) {
+        main {
+            margin-bottom: 165px;
+        }
     }
 </style>

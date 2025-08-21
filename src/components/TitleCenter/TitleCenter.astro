@@ -1,0 +1,17 @@
+---
+import "./title-center.css"
+
+const {
+    title = "Título por defecto",
+    subtitle = "Subtítulo por defecto",
+    content = ""
+} = Astro.props;
+---
+
+<section class="section grid">
+    <div class="intro-center">
+        {subtitle && <p class="subtitle">{subtitle}</p>}
+        {title &&<h2>{title}</h2>}
+        {content && <p>{content}</p>}
+    </div>
+</section>
