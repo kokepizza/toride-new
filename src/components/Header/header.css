@@ -135,12 +135,45 @@
     height: 1.5rem;
   }
 
-  svg {
+  .rrss svg {
     fill: var(--black);
     transition: fill .3s ease;
   }
 
-  svg:hover {
+  .rrss svg:hover {
     fill: var(--main-color);
   }
+
+  .oride path,
+  .oride circle {
+    transform: translateX(2.5rem);
+    opacity: 0;
+    transition: all .3s ease-in-out;
+  }
+
+  .header-logo:hover .oride path,
+  .header-logo:hover .oride circle {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .oride .oride-o {
+    transition-delay: 0s;
+  }
+  .oride .oride-r {
+    transition-delay: 0.1s;
+  }
+  .oride .oride-i {
+    transition-delay: 0.2s;
+  }
+  .oride .oride-ipunto {
+    transition-delay: 0.3s;
+  }
+  .oride .oride-d {
+    transition-delay: 0.4s;
+  }
+  .oride .oride-e {
+    transition-delay: 0.5s;
+  }
+
 }
