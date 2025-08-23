@@ -91,10 +91,10 @@ export default function Header() {
       </div>
 
       <nav ref={navRef} className="nav">
-        <a href="#" ref={(el) => addLinkRef(el, 0)}>La escuela</a>
-        <a href="#" ref={(el) => addLinkRef(el, 1)}>Programas</a>
-        <a href="#" ref={(el) => addLinkRef(el, 2)}>Tienda</a>
-        <a href="#" ref={(el) => addLinkRef(el, 3)}>Contacto</a>
+        <a href="/la-escuela" ref={(el) => addLinkRef(el, 0)}>La escuela</a>
+        <a href="/programas" ref={(el) => addLinkRef(el, 1)}>Programas</a>
+        <a href="/tienda" ref={(el) => addLinkRef(el, 2)}>Tienda</a>
+        <a href="/contacto" ref={(el) => addLinkRef(el, 3)}>Contacto</a>
       </nav>
 
       <div ref={(el) => addLinkRef(el, 4)} className="rrss">

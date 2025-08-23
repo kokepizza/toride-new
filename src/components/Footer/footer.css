@@ -5,10 +5,11 @@
     background-color: var(--main-color);
     padding: 1rem 2rem;
     overflow: hidden;
-    position: fixed;
+    position: relative;
+    /* position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 100%; */
 }
   
 .footer ::selection {
