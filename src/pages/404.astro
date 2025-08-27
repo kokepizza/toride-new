@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button/Button.astro';
+import '../styles/theme.css';
+---
+<Layout>
+    <section class="section e404">
+    <h1>404</h1>
+    <Button link="/" text="Volver al inicio" />
+    </section>
+</Layout>
+<style>
+    body {
+        background-color: var(--black);
+    }
+    .e404 {
+        width: 100dvw;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .e404 h1 {
+        font-size: 40vw;
+        padding-top: 4rem;
+        color: var(--white);
+    }
+</style>
