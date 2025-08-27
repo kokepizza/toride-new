@@ -83,6 +83,8 @@ button {
   --infantil: #4d9e45;
   --junior: #D32F2F;
   --senior: #6A1B9A;
+  --padding-x: 1rem;
+  --padding-y: 2.5rem;
 }
 
 @media (min-width: 768px) {
