@@ -1,0 +1,55 @@
+.home-hero {
+    width: 100dvw;
+    height: 100dvh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+  
+.home-hero__content {
+    position: absolute;
+    bottom: 1rem;
+    padding: 0 16px;
+    color: #1d1d1b;
+}
+  
+@media (min-width: 768px) {
+    .home-hero__content {
+      width: 60%;
+      padding: 0 40px;
+    }
+}
+  
+@media (min-width: 1024px) {
+    .home-hero__content {
+      bottom: 2rem;
+      padding: 0 64px;
+    }
+}
+
+/* SNIPPET CLASE GRATIS */
+
+.clase_gratis {
+    position: absolute;
+    width: 30vh;
+    height: auto;
+    top: 100px;
+    right: 24px;
+    z-index: 10;
+}
+  
+.clase_gratis img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+}
+  
+@media (min-width: 1024px) {
+    .clase_gratis {
+      top: 120px;
+      right: 40px;
+      width: 45vh;
+    }
+}
