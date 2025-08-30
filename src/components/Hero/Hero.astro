@@ -1,0 +1,13 @@
+---
+import "./hero.css";
+
+const {
+  title1 = "Loremp",
+  title2 = "Ipsum",
+  dark = false
+} = Astro.props;
+---
+
+<section class={`hero rounded ${dark ? "dark" : "light"}`}>
+    <h1>{title1} <br> <span>{title2}</span></h1>
+</section>

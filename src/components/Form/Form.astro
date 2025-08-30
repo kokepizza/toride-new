@@ -16,7 +16,7 @@ const {
     <p>{content}</p>
   </div>
 
-  <form method="post" action="/contact" class="form grid">
+  <form method="post" action="/contact" class="form grid" id="form">
     <input type="text" id="name" name="contact[name]" placeholder="Nombre completo" required />
     <input type="email" id="email" name="contact[email]" placeholder="Correo electrónico" required />
     <input type="tel" id="phone" name="contact[phone]" placeholder="Teléfono si prefieres WhatsApp" pattern="[0-9]{9}" />
