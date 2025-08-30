@@ -6,12 +6,11 @@ const {
   subtitle = "Subtítulo por defecto",
   content = "",
   image = "", // ruta de la imagen
-  bg = "", // color de fondo
   dark = "false"
 } = Astro.props;
 ---
 
-<section class={`section grid ${dark ? "dark" : "light"}`} style={`background-color: ${bg}`}>
+<section class={`section grid ${dark ? "dark" : "light"}`}>
   <div class="intro">
     {subtitle && <p class="subtitle">{subtitle}</p>}
     {title && <h2>{title}</h2>}
