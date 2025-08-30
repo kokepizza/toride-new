@@ -178,6 +178,18 @@ h3 {
   width: 100%;
 }
 
+/* light mode */
+.section.light {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+/* dark mode */
+.section.dark {
+  background-color: var(--black);
+  color: var(--white);
+}
+
 .rounded {
   border-radius: 0 0 4rem 4rem;
 }

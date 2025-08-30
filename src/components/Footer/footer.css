@@ -1,80 +1,30 @@
 .footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.logos-pages {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 3rem;
     align-items: center;
-    background-color: var(--main-color);
-    padding: 1rem 1.5rem;
-    overflow: hidden;
-    position: relative;
-    /* position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%; */
 }
-  
-.footer ::selection {
-    background-color: var(--black);
-    color: var(--main-color);
+
+.footer-pages {
+    display: none;
 }
   
 .footer svg {
-    width: 60px;
+    width: 80px;
     height: auto;
 }
 
 .footer svg .toride-circle {
+    --spin-speed: 10s;
     transform-origin: center center;
-    animation: spin 12s linear infinite;
-}
-  
-.footer a {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    text-decoration: none;
-    color: var(--black);
-    font-family: 'D-DIN Condensed', sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--black);
-    border-radius: 1rem;
-    transition: all 0.3s ease;
-    z-index: 2;
-    font-size: 14px;
-}
-  
-.footer a:hover {
-    background-color: var(--black);
-    color: var(--main-color);
-}
-  
-.footer p {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 5%;
-    color: var(--black);
-    font-size: 12px;
-    white-space: nowrap;
-}
-  
-@media (min-width: 768px) {
-    .footer svg {
-      width: 100px;
-    }
-
-    .footer a {
-        font-size: 1rem;
-    }
-  
-    .footer p {
-      font-size: 1rem;
-    }
-  
-    .footer {
-      padding: 2rem 5rem !important;
-    }
+    animation: spin var(--spin-speed) linear infinite;
 }
   
 @keyframes spin {
@@ -83,5 +33,75 @@
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+.footer-legal {
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 2*(var(--padding-x)));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-legal a {
+    text-decoration: underline;
+}
+
+.footer-legal > * {
+    padding: .25rem 0;
+}
+
+.legal-rights {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .footer-pages {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .footer svg {
+        width: 120px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer svg {
+        width: 170px;
+    }
+
+    .logos-pages {
+        padding-bottom: 0;
+    }
+
+    .logos-pages a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-pages {
+        font-size: 1.2rem;
+        gap: 1rem;
+    }
+
+    .footer-legal a {
+        text-decoration: none;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .footer-legal a:hover {
+        text-decoration: underline;
+    }
+
+    .footer svg:hover .toride-circle {
+        --spin-speed: .5s;
     }
 }
