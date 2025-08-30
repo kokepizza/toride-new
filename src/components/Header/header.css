@@ -8,9 +8,9 @@
   -webkit-backdrop-filter: blur(1rem);
   border: 1.5px solid var(--main-color);
   border-radius: 80rem;
-  margin: 1rem;
+  margin: 1rem var(--padding-x);
   position: fixed;
-  width: calc(100% - 2rem);
+  width: calc(100% - 2*(var(--padding-x)));
   z-index: 100;
 }
 
@@ -82,7 +82,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem;
+    margin: 1rem var(--padding-x);
     padding: .5rem 2rem;
     background-color: rgba(255,255,255,.6);
     backdrop-filter: blur(1rem);
@@ -90,7 +90,7 @@
     border: 1.5px solid var(--main-color);
     border-radius: 8rem;
     position: fixed;
-    width: calc(100% - 2rem);
+    width: calc(100% - 2*(var(--padding-x)));
     z-index: 100;
   }
 
