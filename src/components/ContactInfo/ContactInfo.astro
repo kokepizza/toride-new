@@ -2,13 +2,13 @@
 import "./contact-info.css"
 
 const {
-    dark = "false",
+    dark = false,
     title = "Título por defecto",
     subtitle = "Subtítutlo por defecto"
 } = Astro.props;
 ---
 
-<section class={`section grid ${dark ? "dark" : "light"}`}> 
+<section class={`section grid ${dark ? "dark" : "light"}`}>
     <div class="contact-info">
         <p class="subtitle">{subtitle}</p>
         <h2>{title}</h2>

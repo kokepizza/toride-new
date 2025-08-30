@@ -1,0 +1,18 @@
+---
+import "./cta.css"
+import Button from"../Button/Button.astro"
+
+const {
+    title = "Título por defecto",
+    content = "CLorem ipsum dolor sit amet consectetur. Sed sed nunc mauris vestibulum sit velit tempus. Hac lorem in aliquam luctus. Arcu placerat pellentesque ultrices malesuada. Morbi faucibus mauris dui consectetur id amet. Vitae lorem tincidunt ut vestibulum elit sagittis duis egestas condimentum.",
+    dark = false
+} = Astro.props;
+---
+
+<section class={`section grid ${dark ? "dark" : "light"}`}>
+    <div class="cta-section">
+        <h2>{title}</h2>
+        <p>{content}</p>
+        <Button text="quiero probar" link="/contact"/>
+    </div>
+</section>

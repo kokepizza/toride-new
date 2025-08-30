@@ -4,11 +4,30 @@ import Preloader from '../components/Preloader/Preloader';
 import TitleCenter from '../components/TitleCenter/TitleCenter.astro';
 import IntroImage from '../components/IntroImage/IntroImage.astro';
 import ContactInfo from '../components/ContactInfo/ContactInfo.astro';
+import CTA from '../components/CTA/CTA.astro';
+import Gallery from '../components/Gallery/Gallery.jsx';
+
+
+// Estático
+const images = [
+  { src: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=800", alt: "Imagen 1" },
+  { src: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=800", alt: "Imagen 2" },
+  { src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800", alt: "Imagen 3" },
+  { src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800", alt: "Imagen 4" },
+  { src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800", alt: "Imagen 5" },
+  { src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800", alt: "Imagen 6" }
+];
+
+// Dinámico desde WordPress
+// const res = await fetch('https://tusitio.com/wp-json/wp/v2/media');
+// const wpData = await res.json();
+// const images = wpData.map(img => ({ src: img.source_url, alt: img.alt_text || "" }));
 ---
 
 <Layout>
 
 	<Preloader client:only="react" active={false} />
+
 	 <TitleCenter 
 	 	content="En nuestras clases de artes marciales, nos enfocamos en el kickboxing y la defensa personal para ofrecerte una experiencia completa. Trabajamos la disciplina, la concentración y el respeto, valores esenciales de las artes marciales, mientras te pones en forma y disfrutas del deporte. Además de mejorar tu condición física, aprenderás técnicas efectivas para protegerte y ganar confianza en ti mismo. ¡Ven a sudar la camiseta, a superarte y a formar parte de una comunidad que comparte la pasión por las artes marciales!"
 		dark={false}
@@ -27,5 +46,18 @@ import ContactInfo from '../components/ContactInfo/ContactInfo.astro';
 	 	subtitle="¿Quieres saber más?"
 		dark={false}
 	 />
-	 
+
+	<CTA 
+		title="empezar a entrenar"
+		content="La primera patada es la que cuenta. Escríbenos, ven a probar y siente la energía de Toride. Fuerza, técnica y actitud te esperan. ¡Es tu momento de empezar!"
+		dark={false}
+	/>
+
+	<Gallery
+		images={images}
+		title="Instalaciones XD"
+		subtitle="Galería de imágenes"
+		dark={false}
+		client:load
+	/>
 </Layout>
