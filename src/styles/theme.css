@@ -23,7 +23,7 @@ button {
     cursor: pointer;
 }
 
-/* Tipografía D-DIN */
+/* TIPOGRAFÍA D-DIN */
 
 /* Regular */
 @font-face {
@@ -110,6 +110,33 @@ html {
   background-color: var(--main-color);
 }
 
+main {
+  margin-bottom: 210px;
+  position: relative;
+  z-index: 1;
+}
+
+main > :last-child {
+  border-radius: 0 0 3rem 3rem;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  main {
+    margin-bottom: 280px;
+  }
+}
+
+@media (min-width: 1024px) {
+  main {
+    margin-bottom: 330px;
+  }
+
+  main > :last-child {
+    border-radius: 0 0 5rem 5rem;
+  }
+}
+
 ::selection {
   background-color: var(--main-color);
   color: var(--black);
@@ -191,7 +218,7 @@ h3 {
 }
 
 .rounded {
-  border-radius: 0 0 5rem 5rem;
+  border-radius: 0 0 3rem 3rem;
 }
 
 .grid {
@@ -210,6 +237,10 @@ h3 {
   .grid {
     grid-template-columns: repeat(12, 1fr);
     gap: 1.5rem;
+  }
+
+  .rounded {
+    border-radius: 0 0 5rem 5rem;
   }
 }
 
