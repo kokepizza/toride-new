@@ -19,6 +19,12 @@
 .footer-pages {
     display: none;
 }
+
+.footer-pages a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
   
 .footer svg {
     width: 80px;
@@ -67,6 +73,7 @@
     .footer-pages {
         display: flex;
         flex-direction: column;
+        align-items: center;
         text-align: center;
         text-transform: uppercase;
         font-weight: bold;
@@ -86,8 +93,19 @@
         padding-bottom: 0;
     }
 
-    .logos-pages a:hover {
-        text-decoration: underline;
+    .footer-pages a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 0%;
+        height: 2px;
+        background-color: currentColor;
+        transition: width 0.3s ease;
+    }
+
+    .footer-pages a:hover::after {
+        width: 100%;
     }
 
     .footer-pages {

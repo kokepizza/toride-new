@@ -1,0 +1,43 @@
+---
+import "./instructorxs.css";
+
+const {
+    title = "title",
+    subtitle = "subtitle",
+    instructor1 = "Primer instructor",
+    info1 = "Texto descriptivo del primer instructor.",
+    img1 = "https://images.unsplash.com/photo-1608583224016-d7fdbc3bf282?q=80&w=1038&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    instructor2 = "Segon instructor",
+    info2 = "Texto descriptivo del segundo instructor.",
+    img2 = "https://images.unsplash.com/photo-1608583224016-d7fdbc3bf282?q=80&w=1038&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    dark = false
+} = Astro.props;
+---
+
+<section class={`section grid ${dark ? "dark" : "light"}`}>
+    <div class="intro-center">
+        <p class="subtitle">{subtitle}</p>
+        <h2>{title}</h2>
+    </div>
+    <div class="instructor_wrapper">
+        <div class="instructor">
+            <div class="image ar-9-14 groc">
+                <img src={img1} alt={instructor1} class="cover"/>
+            </div>
+            <div class="instructor-bio">
+                <h3>{instructor1}</h3>
+                <p>{info1}</p>
+            </div>
+        </div>
+        <div class="instructor">
+            <div class="image ar-9-14 groc">
+                <img src={img2} alt={instructor2} class="cover"/>
+            </div>
+            <div class="instructor-bio">
+                <h3>{instructor2}</h3>
+                <p>{info2}</p>
+            </div>
+        </div>
+    </div>
+</section>
+

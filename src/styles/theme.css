@@ -250,6 +250,7 @@ h3 {
   width: 100%;
   height: auto;
   position: relative;
+  user-select: none;
 }
 
 .ar-9-14 {

@@ -9,6 +9,8 @@ import Gallery from '../components/Gallery/Gallery.jsx';
 import Form from '../components/Form/Form.astro';
 import Hero from '../components/Hero/Hero.astro';
 import HomeHero from '../components/HomeHero/HomeHero.astro';
+import Calendar from '../components/Calendar/Calendar.astro';
+import Instructorxs from '../components/Instructorxs/Instructorxs.astro';
 
 // Estático
 const images = [
@@ -31,54 +33,74 @@ const images = [
 	<Preloader client:only="react" active={false} />
 
 	 <TitleCenter 
-	 	content="En nuestras clases de artes marciales, nos enfocamos en el kickboxing y la defensa personal para ofrecerte una experiencia completa. Trabajamos la disciplina, la concentración y el respeto, valores esenciales de las artes marciales, mientras te pones en forma y disfrutas del deporte. Además de mejorar tu condición física, aprenderás técnicas efectivas para protegerte y ganar confianza en ti mismo. ¡Ven a sudar la camiseta, a superarte y a formar parte de una comunidad que comparte la pasión por las artes marciales!"
-		dark={false}
+	 	content = "En nuestras clases de artes marciales, nos enfocamos en el kickboxing y la defensa personal para ofrecerte una experiencia completa. Trabajamos la disciplina, la concentración y el respeto, valores esenciales de las artes marciales, mientras te pones en forma y disfrutas del deporte. Además de mejorar tu condición física, aprenderás técnicas efectivas para protegerte y ganar confianza en ti mismo. ¡Ven a sudar la camiseta, a superarte y a formar parte de una comunidad que comparte la pasión por las artes marciales!"
+		dark = {false}
 	 />
 
 	 <IntroImage 
-		title="Defensa Toride"
-		subtitle="qué hacemos"
-		content="En nuestras clases de artes marciales, nos enfocamos en el kickboxing y la defensa personal para ofrecerte una experiencia completa. Trabajamos la disciplina, la concentración y el respeto, valores esenciales de las artes marciales, mientras te pones en forma y disfrutas del deporte. Además de mejorar tu condición física, aprenderás técnicas efectivas para protegerte y ganar confianza en ti mismo. ¡Ven a sudar la camiseta, a superarte y a formar parte de una comunidad que comparte la pasión por las artes marciales!"
-		image="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1600&q=80"
-		dark={false}
+		title = "Defensa Toride"
+		subtitle = "qué hacemos"
+		content = "En nuestras clases de artes marciales, nos enfocamos en el kickboxing y la defensa personal para ofrecerte una experiencia completa. Trabajamos la disciplina, la concentración y el respeto, valores esenciales de las artes marciales, mientras te pones en forma y disfrutas del deporte. Además de mejorar tu condición física, aprenderás técnicas efectivas para protegerte y ganar confianza en ti mismo. ¡Ven a sudar la camiseta, a superarte y a formar parte de una comunidad que comparte la pasión por las artes marciales!"
+		image = "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1600&q=80"
+		dark = {false}
 	 />
 
 	 <ContactInfo 
-	 	title="Contacto"
-	 	subtitle="¿Quieres saber más?"
-		dark={false}
+	 	title = "Contacto"
+	 	subtitle = "¿Quieres saber más?"
+		dark = {false}
 	 />
 
 	<CTA 
-		title="empezar a entrenar"
-		content="La primera patada es la que cuenta. Escríbenos, ven a probar y siente la energía de Toride. Fuerza, técnica y actitud te esperan. ¡Es tu momento de empezar!"
-		dark={false}
+		title = "empezar a entrenar"
+		content = "La primera patada es la que cuenta. Escríbenos, ven a probar y siente la energía de Toride. Fuerza, técnica y actitud te esperan. ¡Es tu momento de empezar!"
+		dark = {false}
 	/>
 
 	<Gallery client:load
-		images={images}
-		title="Instalaciones XD"
-		subtitle="Galería de imágenes"
-		dark={false}
+		images = {images}
+		title = "Instalaciones XD"
+		subtitle = "Galería de imágenes"
+		dark = {false}
 	/>
 
 	<Hero 
-		title1="Programa"
-		title2="Peques"
-		dark={false}
+		title1 = "Programa"
+		title2 = "Peques"
+		dark = {false}
 	/>
 
 	<HomeHero 
-		title1="Escuela de"
-		title2="Artes Marciales"
-		tagline="Disciplina, respeto y confianza en cada movimiento. Entrena con nosotros para fortalecer tu cuerpo y mente, supera tus límites y domina el arte del combate."
+		title1 = "Escuela de"
+		title2 = "Artes Marciales"
+		tagline = "Disciplina, respeto y confianza en cada movimiento. Entrena con nosotros para fortalecer tu cuerpo y mente, supera tus límites y domina el arte del combate."
 	/>
 
-		<Form 
-		title="Formulario"
-		subtitle="Contacto"
-		content="Si tienes cualquier duda o quieres contactar con nosotros par ahacer una clase de prueba, llámanos o rellena el formulario de contacto y te responderemos lo más pronto posible."
-		dark={false}
+	<Form 
+		title = "Formulario"
+		subtitle = "Contacto"
+		content = "Si tienes cualquier duda o quieres contactar con nosotros par ahacer una clase de prueba, llámanos o rellena el formulario de contacto y te responderemos lo más pronto posible."
+		dark = {false}
+	/>
+
+	<Calendar 
+		title = "Calendario"
+		subtitle = "horario"
+		imgUrl = "https://images.unsplash.com/photo-1575800605380-ca1d27744f2c?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+		pdfUrl = "#"
+		dark = {false}
+	/>
+
+	<Instructorxs 
+		title = "Instructorxs"
+		subtitle = "equipo"
+		instructor1 = "Maties Tortosa"
+		info1 = "Maties es un apasionado del kickboxing y la defensa personal, con más de 10 años de experiencia en la enseñanza de artes marciales. Su enfoque se centra en el desarrollo integral de sus estudiantes, combinando técnica, condición física y valores como el respeto y la disciplina."
+		img1 = "https://images.unsplash.com/photo-1608583224016-d7fdbc3bf282?q=80&w=1038&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+		instructor2 = "Laura Payeras"
+		info2 = "Laura es experta en defensa personal y ha competido a nivel nacional en diversas disciplinas de artes marciales. Su enfoque se centra en empoderar a sus estudiantes y fomentar un ambiente de respeto y confianza."
+		img2 = "https://images.unsplash.com/photo-1608583224016-d7fdbc3bf282?q=80&w=1038&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+		dark = {false}
 	/>
 
 </Layout>
