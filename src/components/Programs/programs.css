@@ -1,0 +1,95 @@
+/* Base para todos los tamaños */
+.program_wrapper {
+    grid-column: span 4;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+} 
+
+.program {
+    grid-column: span 2;
+    padding: 0 .5rem;
+}
+
+/* Media query 768px */
+@media (min-width: 768px) {
+    .program_wrapper {
+        grid-column: span 8;
+        grid-template-columns: repeat(8, 1fr);
+    }
+
+    .program {
+        grid-column: span 3;
+    }
+
+    .peques, .junior {
+        grid-column: 2 / span 3;
+    }
+}
+
+/* Media query 1024px: layouts vertical y horizontal */
+@media (min-width: 1024px) {
+
+    /* Layout vertical */
+    .vertical .program_wrapper {
+        grid-column: span 12;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .vertical .program {
+        grid-column: span 3;
+    }
+
+    .vertical .peques,
+    .vertical .junior {
+        grid-column: 4 / span 3;
+    }
+
+    /* Layout horizontal */
+    .horizontal .program_wrapper {
+        grid-column: span 12;
+        width: 100%;
+        display: flex;
+    }
+
+    .horizontal .program {
+        width: 25%;
+        transition: width 0.4s cubic-bezier(0.29, 1.31, 0.64, 1);
+        height: auto;
+    }
+
+    .horizontal .program:hover {
+        width: 40%;
+    }
+}
+
+/* Hover overlay común */
+.peques:hover::after,
+.infantil:hover::after,
+.junior:hover::after,
+.senior:hover::after {
+    opacity: .2;
+}
+
+/* Colores */
+.peques::after { background-color: var(--peques); opacity: .4; }
+.peques p { color: var(--peques); }
+
+.infantil::after { background-color: var(--infantil); opacity: .4; }
+.infantil p { color: var(--infantil); }
+
+.junior::after { background-color: var(--junior); opacity: .4; }
+.junior p { color: var(--junior); }
+
+.senior::after { background-color: var(--senior); opacity: .4; }
+.senior p { color: var(--senior); }
+
+/* Heading programas */
+.program-heading {
+    padding: 1rem;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}

@@ -1,0 +1,63 @@
+---
+import "./programs.css";
+
+const {
+    title = "title",
+    subtitle = "subtitle",
+    pequesImg,
+    infantilImg,
+    juniorImg,
+    seniorImg,
+    dark = false,
+    layout
+} = Astro.props;
+---
+
+<section class={`section grid ${dark ? "dark" : "light"} ${layout}`}>
+    <div class="intro-center">
+        <p class="subtitle">{subtitle}</p>
+        <h2>{title}</h2>
+    </div>
+
+    <div class="program_wrapper">
+        <div class="program peques">
+            <a href="/programas/peques" class="image ar-9-14 peques">
+                <img src={pequesImg} alt="Peques" class="cover" />
+            </a>
+            <div class="program-heading">
+                <h3>Peques</h3>
+                <p>4-7 años</p>
+            </div>
+        </div>
+
+        <div class="program infantil">
+            <a href="/programas/infantil" class="image ar-9-14 infantil">
+                <img src={infantilImg} alt="Infantil" class="cover" />
+            </a>
+            <div class="program-heading">
+                <h3>Infantil</h3>
+                <p>8-11 años</p>
+            </div>
+        </div>
+
+        <div class="program junior">
+            <a href="/programas/junior" class="image ar-9-14 junior">
+                <img src={juniorImg} alt="Junior" class="cover" />
+            </a>
+            <div class="program-heading">
+                <h3>Junior</h3>
+                <p>12-15 años</p>
+            </div>
+        </div>
+
+        <div class="program senior">
+            <a href="/programas/senior" class="image ar-9-14 senior">
+                <img src={seniorImg} alt="Senior" class="cover" />
+            </a>
+            <div class="program-heading">
+                <h3>Senior</h3>
+                <p>+16 años</p>
+            </div>
+        </div>
+    </div>
+</section>
