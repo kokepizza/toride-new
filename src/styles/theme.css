@@ -23,7 +23,7 @@ button {
     cursor: pointer;
 }
 
-/* TIPOGRAFÍA D-DIN */
+/* D-DIN */
 
 /* Regular */
 @font-face {
@@ -110,6 +110,7 @@ html {
   background-color: var(--main-color);
 }
 
+/* Last section footer fixed */
 main {
   margin-bottom: 210px;
   position: relative;
@@ -122,19 +123,12 @@ main > :last-child {
 }
 
 @media (min-width: 768px) {
-  main {
-    margin-bottom: 280px;
-  }
+  main { margin-bottom: 280px; }
 }
 
 @media (min-width: 1024px) {
-  main {
-    margin-bottom: 330px;
-  }
-
-  main > :last-child {
-    border-radius: 0 0 5rem 5rem;
-  }
+  main { margin-bottom: 330px; }
+  main > :last-child { border-radius: 0 0 5rem 5rem; }
 }
 
 ::selection {
@@ -160,44 +154,15 @@ h1, h2 {
   }
 }
 
-h1 {
-  font-size: 12vw;
-}
+/* Font sizing */
+h1 { font-size: clamp(2.5rem, 12vw, 8rem); }
+h2 { font-size: clamp(2rem, 10vw, 5rem); }
+h3 { font-size: clamp(1.25rem, 4vw, 2.25rem); }
+h4 { font-size: clamp(1.125rem, 3vw, 1.75rem); }
+h5 { font-size: clamp(1rem, 2.5vw, 1.5rem); }
+h6 { font-size: clamp(0.875rem, 2vw, 1.25rem); }
 
-@media (min-width: 768px) {
-  h1 {
-    font-size: clamp(2rem, 8vw, 8rem);
-  }
-}
-
-h2 {
-  font-size: 10vw;
-}
-
-@media (min-width: 768px) {
-  h2 {
-    font-size: clamp(1.5rem, 5vw, 5rem);
-  }
-}
-
-h3 {
-  font-size: 6vw;
-}
-
-@media (min-width: 768px) {
-  h3 {
-    font-size: 3vw;
-  }
-}
-
-@media (min-width: 1024px) {
-  h3 {
-    font-size: clamp(1rem, 2vw, 2rem);
-  }
-}
-
-/* LAYOUT */
-
+/* Layout */
 .section {
   padding: var(--padding-y) var(--padding-x);
   max-width: 1600px;
@@ -217,9 +182,7 @@ h3 {
   color: var(--white);
 }
 
-.rounded {
-  border-radius: 0 0 3rem 3rem;
-}
+.rounded { border-radius: 0 0 3rem 3rem; }
 
 .grid {
   display: grid;
@@ -228,9 +191,7 @@ h3 {
 }
 
 @media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(8, 1fr);
-  }
+  .grid { grid-template-columns: repeat(8, 1fr); }
 }
 
 @media (min-width: 1024px) {
@@ -239,9 +200,7 @@ h3 {
     gap: 1.5rem;
   }
 
-  .rounded {
-    border-radius: 0 0 5rem 5rem;
-  }
+  .rounded { border-radius: 0 0 5rem 5rem; }
 }
 
 .image {
@@ -253,9 +212,7 @@ h3 {
   user-select: none;
 }
 
-.ar-9-14 {
-  aspect-ratio: 9 / 14;
-}
+.ar-9-14 { aspect-ratio: 9 / 14; }
   
 @media (min-width: 1024px) {
   .ar-9-14 {
@@ -263,11 +220,9 @@ h3 {
     height: 500px;
   }
 }
-  
-.ar-9-14 img {
-  filter: grayscale(100%);
-}
-  
+
+.ar-9-14 img { filter: grayscale(100%); }
+
 .image::after {
   content: '';
   position: absolute;
@@ -281,9 +236,7 @@ h3 {
 }
   
 @media (min-width: 768px) {
-  .image::after {
-    border-radius: 1.5rem;
-  }
+  .image::after { border-radius: 1.5rem; }
 }
 
 /* IMAGE FULL-WIDTH */
@@ -294,40 +247,25 @@ h3 {
 }
 
 @media (min-width: 768px) {
-  .full-img {
-    grid-column: span 8;
-  }
+  .full-img { grid-column: span 8; }
 }
 
 @media (min-width: 1024px) {
-  .full-img {
-    grid-column: 2 / span 10;
-  }
+  .full-img { grid-column: 2 / span 10; }
 }
 
-.contain {
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-  border-radius: 1rem;
-}
-
-.cover {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  border-radius: 1rem;
-}
-
+.contain,
+.cover,
 .fill {
-  object-fit: fill;
   width: 100%;
   height: 100%;
   border-radius: 1rem;
 }
+
+.contain { object-fit: contain; }
+.cover { object-fit: cover; }
+.fill { object-fit: fill; }
 
 @media (min-width: 768px) {
-  .contain, .cover, .fill {
-      border-radius: 1.5rem;
-  }
+  .contain, .cover, .fill { border-radius: 1.5rem; }
 }

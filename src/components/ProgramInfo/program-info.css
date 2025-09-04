@@ -1,68 +1,94 @@
 .program-info {
     width: 100%;
     padding: 2rem;
-    border: 1.5px solid var(--peques);
-    border-radius: 2rem;
+    border: 1.5px solid;
+    border-radius: 1.5rem;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
 }
-  
+
+.program-info.peques { border-color: var(--peques); }
+.program-info.infantil { border-color: var(--infantil); }
+.program-info.junior { border-color: var(--junior); }
+.program-info.senior { border-color: var(--senior); }
+
+.program-info h3 { margin-bottom: 1rem; }
+
 .program-info__details {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-template-columns: auto 1fr;
+    row-gap: 0.75rem;
+    column-gap: 3rem;
+    align-items: center;
+    font-size: 1.125rem;
 }
-  
-.program-info__details,
-.program-info__image,
-.program-info__features {
-    grid-column: span 2;
-  
-    h3 {
-      grid-column: span 2;
-    }
-}
-  
+
+.program-info__details h3 { grid-column: span 2; }
+
+.program-info__details.peques p { color: var(--peques); }
+.program-info__details.infantil p { color: var(--infantil); }
+.program-info__details.junior p { color: var(--junior); }
+.program-info__details.senior p { color: var(--senior); }
+
 .program-info__features ul {
-    margin-top: 1rem;
-  
-    li {
-      margin-bottom: .25rem;
-    }
+    list-style: none;
+    margin-top: 0.5rem;
+    padding-left: 0;
 }
-  
+
+.program-info__features ul li {
+    margin-bottom: 0.5rem;
+}
+
+.program-info__image img {
+    width: 100%;
+    height: auto;
+    max-height: 25rem;
+    object-fit: cover;
+}
+
 @media (min-width: 768px) {
     .program-info  {
-      padding: 4rem;
-      gap: 4rem;
-    }
-  
-    .program-info__details,
-    .program-info__image,
-    .program-info__features {
-      grid-column: span 1;
+        padding: 4rem;
+        gap: 3rem 4rem;
+        border-radius: 3rem;
     }
 }
-  
+
+/* Layout en pantallas grandes */
 @media (min-width: 1024px) {
-    .program-info__image {
-      height: 300px;
+    .program-info {
+        grid-template-columns: 1fr 1fr;
+        align-items: start; /* 👉 todos alineados arriba */
     }
-}
 
-.peques p {
-    color: var(--peques);
-}
+    .program-info h3 { margin-bottom: 1.5rem; }
 
-.infantil p {
-    color: var(--infantil);
-}
+    /* Cada bloque en su columna correspondiente */
+    .program-info__details {
+        column-gap: 5rem;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        align-self: start;
+    }
 
-.junior p {
-    color: var(--junior);
-}
+    .program-info__features:first-of-type {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        align-self: start;
+    }
 
-.senior p {
-    color: var(--senior);
+    .program-info__image {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        align-self: start;
+    }
+
+    .program-info__features:last-of-type {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        align-self: start;
+    }
 }
