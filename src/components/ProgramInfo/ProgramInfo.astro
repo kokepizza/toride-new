@@ -2,20 +2,20 @@
 import "./program-info.css";
 
 const {
-  dark = false,
-  program = "peques",
+    dark = false,
+    program = "peques",
 
-  // Details
-  age = "",
-  schedule = "",
-  price = "",
+    // Details
+    age = "",
+    schedule = "",
+    price = "",
 
-  // Features
-  aprenderas = [],
-  ofrecemos = [],
+    // Features
+    aprenderas = [],
+    ofrecemos = [],
 
-  // Image
-  image = "",
+    // Image
+    image = "",
 } = Astro.props;
 ---
 
@@ -31,7 +31,7 @@ const {
 
       <p>HORARIOS</p>
       <span set:html={schedule}></span>
-      
+
       <p>PRECIO</p>
       <span>{price}</span>
     </div>
