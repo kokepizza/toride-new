@@ -1,0 +1,33 @@
+---
+import "./shop.css";
+import Button from "../Button/Button.astro";
+
+const {
+    title = "title",
+    subtitle = "subtitle",
+    products = [],
+    dark = false,
+} = Astro.props;
+---
+
+<section class={`section grid ${dark ? "dark" : "light"}`}>
+    <div class="intro-center">
+        {subtitle && <p class="subtitle">{subtitle}</p>}
+        {title && <h2>{title}</h2>}
+    </div>
+
+    <div class="shop_wrapper grid">
+        {products.map((product) => (
+        <div class="shop-item">
+            <div class="shop-item__image">
+                <Button link={product.link} text={product.buttonText} />
+                <img src={product.image} alt={product.name} class="cover" />
+            </div>
+            <div class="shop-item__info">
+                <h4>{product.name}</h4>
+                <p>{product.price}</p>
+            </div>
+        </div>
+        ))}
+    </div>
+</section>
