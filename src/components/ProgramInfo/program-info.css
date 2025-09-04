@@ -57,16 +57,14 @@
     }
 }
 
-/* Layout en pantallas grandes */
 @media (min-width: 1024px) {
     .program-info {
         grid-template-columns: 1fr 1fr;
-        align-items: start; /* 👉 todos alineados arriba */
+        align-items: start;
     }
 
     .program-info h3 { margin-bottom: 1.5rem; }
 
-    /* Cada bloque en su columna correspondiente */
     .program-info__details {
         column-gap: 5rem;
         grid-column: 1 / 2;
