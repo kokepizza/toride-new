@@ -1,0 +1,48 @@
+---
+import "./program-info.css";
+
+const {
+    dark = false
+} = Astro.props;
+---
+
+<section class={`section ${dark ? "dark" : "light"}`}>
+    <div class="program-info">
+        <div class="program-info__details peques">
+            <h3>Detalles del programa</h3>
+            <p>EDAD</p>
+            <span>4-7 AÑOS</span>
+            <p>HORARIOS</p>
+            <span>L-V 17:30H <br>S 11:15H</span>
+            <p>PRECIO</p>
+            <span>4 - 7 AÑOS</span>
+        </div>
+        <div class="program-info__features">
+            <h3>aprenderás</h3>
+            <ul>
+                <li>Coordinación y equilibrio</li>
+                <li>Movimientos básicos de las artes marciales</li>
+                <li>Concentración y autocontrol emocional</li>
+                <li>Condicionamiento físico adecuado a la edad</li>
+                <li>Mejora de la flexibilidad y la agilidad</li>
+                <li>Desarrollo de la psicomotricidad y habilidades básicas</li>
+                <li>Introducción a la autodefensa y prevención del acoso</li>
+                <li>Fomento de la toma de decisiones y resolución de conflictos</li>
+                <li>Construcción de la confianza y autoestima</li>
+                <li>Inculcación de valores como la disciplina y el respeto</li>
+            </ul>
+        </div>
+        <div class="program-info__image image">
+            <img src="assets/images/AdobeStock_210625666.jpeg" alt="" class="cover">
+        </div>
+        <div class="program-info__features">
+            <h3>ofrecemos</h3>
+            <ul>
+                <li>Entrenadores/as con títulos nacionales y experiencia profesional</li>
+                <li>Un entorno educativo, motivador y lleno de pasión por las artes marciales</li>
+                <li>Evaluaciones semanales para hacer un seguimiento del progreso de tu hijo/a</li>
+                <li>Revisiones anuales para padres y alumnos para monitorizar la evolución, el desarrollo y fijar nuevos objetivos</li>
+            </ul>
+        </div>
+    </div>
+</section>
