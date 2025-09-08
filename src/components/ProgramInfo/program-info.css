@@ -90,3 +90,13 @@
         align-self: start;
     }
 }
+
+@media (min-width: 1920px) {
+    .program-info {
+        border: 2.5px solid;
+    }
+
+    .program-info__image img {
+        max-height: 35rem;
+    }
+}

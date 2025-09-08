@@ -110,6 +110,10 @@ html {
   background-color: var(--main-color);
 }
 
+@media (min-width: 1920px) {
+  html { font-size: 20px; }
+}
+
 /* Last section footer fixed */
 main {
   margin-bottom: 210px;
@@ -131,6 +135,10 @@ main > :last-child {
   main > :last-child { border-radius: 0 0 5rem 5rem; }
 }
 
+@media (min-width: 1920px) {
+  main { margin-bottom: 404px; }
+}
+
 ::selection {
   background-color: var(--main-color);
   color: var(--black);
@@ -142,6 +150,7 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   line-height: .9;
   text-wrap: balance;
+  letter-spacing: -0.03em;
 }
 
 h1, h2 {
@@ -165,8 +174,6 @@ h6 { font-size: clamp(0.875rem, 2vw, 1.25rem); }
 /* Layout */
 .section {
   padding: var(--padding-y) var(--padding-x);
-  max-width: 1600px;
-  margin: 0 auto;
   width: 100%;
 }
 
@@ -218,6 +225,12 @@ h6 { font-size: clamp(0.875rem, 2vw, 1.25rem); }
   .ar-9-14 {
     aspect-ratio: unset;
     height: 500px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .ar-9-14 {
+    height: 750px;
   }
 }
 
