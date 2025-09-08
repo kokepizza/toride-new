@@ -23,6 +23,7 @@
     column-gap: 3rem;
     align-items: center;
     font-size: 1.125rem;
+    text-transform: uppercase;
 }
 
 .program-info__details h3 { grid-column: span 2; }
