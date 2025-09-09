@@ -1,4 +1,4 @@
-const domain = import.meta.env.WP_DOMAIN;
+const domain = import.meta.env.WP_DOMAIN || "https://cms.toride.es";
 const apiUrl = `${domain}/wp-json/wp/v2`;
 
 export async function getPageInfo(slug) {
