@@ -5,6 +5,7 @@
     background-color: var(--black);
     border-radius: 1.5rem;
     color: var(--white);
+    margin-bottom: 4rem;
 }
 
 .cta-section p {

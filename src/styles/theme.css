@@ -82,7 +82,7 @@ button {
   --peques: #00B0F0;
   --infantil: #4d9e45;
   --junior: #D32F2F;
-  --senior: #6A1B9A;
+  --senior: #9f28ea;
   --padding-x: 1rem;
   --padding-y: 2.5rem;
 }
@@ -281,4 +281,32 @@ h6 { font-size: clamp(0.875rem, 2vw, 1.25rem); }
 
 @media (min-width: 768px) {
   .contain, .cover, .fill { border-radius: 1.5rem; }
+}
+
+
+/* Intro centered */
+.subtitle {
+    font-family: 'D-DIN Condensed';
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    color: var(--main-color);
+    padding-bottom: .5rem;
+}
+
+.intro-center {
+    text-align: center;
+    text-wrap: balance;
+    grid-column: span 4;
+}
+
+@media (min-width:768px){
+    .intro-center {
+        grid-column: 2 / span 6;
+    }
+}
+
+@media (min-width:1024px){
+    .intro-center {
+        grid-column: 4 / span 6;
+    }
 }

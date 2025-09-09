@@ -2,12 +2,19 @@
 import "./hero.css";
 
 const {
-  title1 = "Loremp",
-  title2 = "Ipsum",
-  dark = false
+  title1 = "",
+  title2 = "",
+  dark = false,
+  bgImage = "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1600&q=80",
+  rounded = true
 } = Astro.props;
 ---
 
-<section class={`hero rounded ${dark ? "dark" : "light"}`}>
-    <h1>{title1} <br> <span>{title2}</span></h1>
+<section class="hero-wrapper">
+  <div 
+    class={`hero ${rounded ? "rounded" : ""} ${dark ? "dark" : "light"}`} 
+    style={`--hero-bg-image: url('${bgImage}');`}
+  >
+    <h1>{title1} <br /> <span>{title2}</span></h1>
+  </div>
 </section>

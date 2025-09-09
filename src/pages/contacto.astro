@@ -1,34 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Preloader from '../components/Preloader/Preloader';
-import TitleCenter from '../components/TitleCenter/TitleCenter.astro';
-import IntroImage from '../components/IntroImage/IntroImage.astro';
 import ContactInfo from '../components/ContactInfo/ContactInfo.astro';
-import CTA from '../components/CTA/CTA.astro';
-import Gallery from '../components/Gallery/Gallery.jsx';
 import Form from '../components/Form/Form.astro';
 import Hero from '../components/Hero/Hero.astro';
-import HomeHero from '../components/HomeHero/HomeHero.astro';
-import Calendar from '../components/Calendar/Calendar.astro';
-import Instructorxs from '../components/Instructorxs/Instructorxs.astro';
-import Programs from '../components/Programs/Programs.astro';
-import ProgramInfo from '../components/ProgramInfo/ProgramInfo.astro';
 import Shop from '../components/Shop/Shop.astro';
-
-// Estático
-const images = [
-  { src: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=800", alt: "Imagen 1" },
-  { src: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=800", alt: "Imagen 2" },
-  { src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800", alt: "Imagen 3" },
-  { src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800", alt: "Imagen 4" },
-  { src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800", alt: "Imagen 5" },
-  { src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800", alt: "Imagen 6" }
-];
-
-// Dinámico desde WordPress
-// const res = await fetch('https://tusitio.com/wp-json/wp/v2/media');
-// const wpData = await res.json();
-// const images = wpData.map(img => ({ src: img.source_url, alt: img.alt_text || "" }));
 
 const products = [
     {
@@ -84,20 +59,11 @@ const products = [
 
 <Layout>
 
-	<Preloader client:only="react" active={false} />
-
-	 <TitleCenter 
-	 	content = "En nuestras clases de artes marciales, nos enfocamos en el kickboxing y la defensa personal para ofrecerte una experiencia completa. Trabajamos la disciplina, la concentración y el respeto, valores esenciales de las artes marciales, mientras te pones en forma y disfrutas del deporte. Además de mejorar tu condición física, aprenderás técnicas efectivas para protegerte y ganar confianza en ti mismo. ¡Ven a sudar la camiseta, a superarte y a formar parte de una comunidad que comparte la pasión por las artes marciales!"
+	<Hero 
+		title1 = "Contacto"
+		title2 = ""
 		dark = {false}
-	 />
-
-	 <IntroImage 
-		title = "Defensa Toride"
-		subtitle = "qué hacemos"
-		content = "En nuestras clases de artes marciales, nos enfocamos en el kickboxing y la defensa personal para ofrecerte una experiencia completa. Trabajamos la disciplina, la concentración y el respeto, valores esenciales de las artes marciales, mientras te pones en forma y disfrutas del deporte. Además de mejorar tu condición física, aprenderás técnicas efectivas para protegerte y ganar confianza en ti mismo. ¡Ven a sudar la camiseta, a superarte y a formar parte de una comunidad que comparte la pasión por las artes marciales!"
-		image = "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1600&q=80"
-		dark = {false}
-	 />
+	/>
 
 	 <ContactInfo 
 	 	title = "Contacto"
@@ -105,91 +71,13 @@ const products = [
 		dark = {false}
 	 />
 
-	<CTA 
-		title = "empezar a entrenar"
-		content = "La primera patada es la que cuenta. Escríbenos, ven a probar y siente la energía de Toride. Fuerza, técnica y actitud te esperan. ¡Es tu momento de empezar!"
-		dark = {false}
-	/>
-
-	<Gallery client:load
-		images = {images}
-		title = "Instalaciones XD"
-		subtitle = "Galería de imágenes"
-		dark = {false}
-	/>
-
-	<Hero 
-		title1 = "Programa"
-		title2 = "Peques"
-		dark = {false}
-	/>
-
-	<HomeHero 
-		title1 = "Escuela de"
-		title2 = "Artes Marciales"
-		tagline = "Disciplina, respeto y confianza en cada movimiento. Entrena con nosotros para fortalecer tu cuerpo y mente, supera tus límites y domina el arte del combate."
-	/>
-
 	<Form 
 		title = "Formulario"
 		subtitle = "Contacto"
-		content = "Si tienes cualquier duda o quieres contactar con nosotros par ahacer una clase de prueba, llámanos o rellena el formulario de contacto y te responderemos lo más pronto posible."
+		content = "Si tienes cualquier duda o quieres contactar con nosotros para hacer una clase de prueba, llámanos o rellena el formulario de contacto y te responderemos lo más pronto posible."
 		dark = {false}
 	/>
 
-	<Calendar 
-		title = "Calendario"
-		subtitle = "horario"
-		imgUrl = "https://images.unsplash.com/photo-1575800605380-ca1d27744f2c?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-		pdfUrl = "#"
-		dark = {false}
-	/>
-
-	<Instructorxs 
-		title = "Instructorxs"
-		subtitle = "equipo"
-		instructor1 = "Maties Tortosa"
-		info1 = "Maties es un apasionado del kickboxing y la defensa personal, con más de 10 años de experiencia en la enseñanza de artes marciales. Su enfoque se centra en el desarrollo integral de sus estudiantes, combinando técnica, condición física y valores como el respeto y la disciplina."
-		img1 = "https://images.unsplash.com/photo-1608583224016-d7fdbc3bf282?q=80&w=1038&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-		instructor2 = "Laura Payeras"
-		info2 = "Laura es experta en defensa personal y ha competido a nivel nacional en diversas disciplinas de artes marciales. Su enfoque se centra en empoderar a sus estudiantes y fomentar un ambiente de respeto y confianza."
-		img2 = "https://images.unsplash.com/photo-1608583224016-d7fdbc3bf282?q=80&w=1038&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-		dark = {false}
-	/>
-
-	<Programs
-		title = "Programas"
-		subtitle = "por edades"
-		pequesImg = "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80"
-		infantilImg = "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80"
-		juniorImg = "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80"
-		seniorImg = "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=800&q=80"
-		dark = {false}
-		layout = "horizontal"
-	/>
-
-	<ProgramInfo
-		program="peques"
-		dark={true}
-		age="4-7 AÑOS"
-		schedule="L-V 17:30H <br />S 11:15H"
-		price="a partir de 60€/mes"
-		aprenderas={[
-			"Coordinación y equilibrio",
-			"Movimientos básicos de las artes marciales",
-			"Concentración y autocontrol emocional",
-			"Condicionamiento físico adecuado a la edad",
-			"Mejora de la flexibilidad y la agilidad",
-		]}
-		ofrecemos={[
-			"Entrenadores/as con títulos nacionales y experiencia profesional",
-			"Un entorno educativo, motivador y lleno de pasión por las artes marciales",
-			"Evaluaciones semanales para hacer un seguimiento del progreso de tu hijo/a",
-			"Revisiones anuales para padres y alumnos para monitorizar la evolución, el desarrollo y fijar nuevos objetivos",
-		]}
-		image="https://images.unsplash.com/photo-1516684991026-4c3032a2b4fd?q=80&w=2050&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-	/>
-
-	<Shop title="Suscripciones" subtitle="por edades" products={products} />
+	<!-- <Shop title="Suscripciones" subtitle="por edades" products={products} /> -->
 
 </Layout>
