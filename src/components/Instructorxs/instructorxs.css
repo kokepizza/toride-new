@@ -37,7 +37,7 @@
         height: auto;
     }
 
-    .instructor:hover {
+    .instructor:has(.image:hover) {
         width: 40%;
     }
 }
