@@ -5,61 +5,44 @@ import "./preloader.css";
 export default function Preloader({ active = true }) {
   const preloaderRef = useRef(null);
 
-  useEffect(() => {
-    if (!active) return; // si no está activo no se corre la animación
+useEffect(() => {
+  if (!active) return;
 
-    const ctx = gsap.context(() => {
-      gsap.set(".imagotipo", { x: "40%" });
-      gsap.set(".imagotipo-head", { y: -100, opacity: 0 });
-      gsap.set(".imagotipo-arm", { x: -100, opacity: 0 });
-      gsap.set(".imagotipo-leg", { x: 100, opacity: 0 });
+  gsap.set(".imagotipo", { x: "40%" });
+  gsap.set(".imagotipo-head", { y: -100, opacity: 0 });
+  gsap.set(".imagotipo-arm", { x: -100, opacity: 0 });
+  gsap.set(".imagotipo-leg", { x: 100, opacity: 0 });
 
-      gsap.set(".oride-o", { scale: 0, opacity: 0 });
-      gsap.set(".oride-r", { scale: 0, opacity: 0 });
-      gsap.set(".oride-i", { scale: 0, opacity: 0 });
-      gsap.set(".oride-d", { scale: 0, opacity: 0 });
-      gsap.set(".oride-e", { scale: 0, opacity: 0 });
-      gsap.set(".oride-ipunto", { y: -100, opacity: 0 });
+  const letters = [".oride-o", ".oride-r", ".oride-i", ".oride-ipunto", ".oride-d", ".oride-e"];
+  gsap.set(letters, { x: 50, opacity: 0 });
 
-      const tl = gsap.timeline();
+  const tl = gsap.timeline();
 
-      tl.to(".imagotipo-arm", { duration: 0.4, x: 0, opacity: 1, ease: "power2.inOut" })
-        .to(".imagotipo-leg", { duration: 0.4, x: 0, opacity: 1, ease: "power2.inOut" }, "-=0.7")
-        .to(".imagotipo-head", { duration: 0.5, opacity: 1, y: 0, ease: "bounce.out" })
-        .to(".imagotipo", { duration: 0.4, x: 0, ease: "power2.inOut" })
+  tl.to(".imagotipo-arm", { duration: 0.4, x: 0, opacity: 1, ease: "power2.inOut" })
+    .to(".imagotipo-leg", { duration: 0.4, x: 0, opacity: 1, ease: "power2.inOut" }, "-=0.7")
+    .to(".imagotipo-head", { duration: 0.5, y: 0, opacity: 1, ease: "bounce.out" })
+    .to(".imagotipo", { duration: 0.4, x: 0, ease: "power2.inOut" })
 
-        .to(".oride-o", { duration: 0.2, scale: 1, opacity: 1, ease: "power2.inOut" })
-        .to(".oride-r", { duration: 0.2, scale: 1, opacity: 1, ease: "power2.inOut" }, "-=0.1")
-        .to(".oride-i", { duration: 0.2, scale: 1, opacity: 1, ease: "power2.inOut" }, "-=0.1")
-        .to(".oride-d", { duration: 0.2, scale: 1, opacity: 1, ease: "power2.inOut" }, "-=0.1")
-        .to(".oride-e", { duration: 0.2, scale: 1, opacity: 1, ease: "power2.inOut" }, "-=0.1")
-        .to(".oride-ipunto", { duration: 0.5, y: 0, opacity: 1, ease: "bounce.out" })
+    .to(letters, { 
+      duration: 0.2, 
+      x: 0, 
+      opacity: 1, 
+      ease: "power2.out", 
+      stagger: 0.05
+    })
+    
+    .to({}, { duration: 1 }) 
 
-        .add(() => {
-          const hidePreloader = () => {
-            gsap.to(preloaderRef.current, {
-              duration: 1,
-              y: "-100%",
-              opacity: 0,
-              ease: "power2.inOut",
-              onComplete: () => {
-                if (preloaderRef.current) {
-                  preloaderRef.current.style.display = "none";
-                }
-              },
-            });
-          };
-
-          if (document.readyState === "complete") {
-            hidePreloader();
-          } else {
-            window.addEventListener("load", hidePreloader);
-          }
-        });
-    }, preloaderRef);
-
-    return () => ctx.revert();
-  }, [active]);
+    .to(preloaderRef.current, { 
+      duration: 1, 
+      y: "-100%", 
+      opacity: 0, 
+      ease: "power2.inOut",
+      onComplete: () => {
+        if (preloaderRef.current) preloaderRef.current.style.display = "none";
+      }
+    });
+}, [active]);
 
   if (!active) return null;
 

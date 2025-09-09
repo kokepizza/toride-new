@@ -1,4 +1,5 @@
 ---
+import Preloader from '../components/Preloader/Preloader.jsx';
 import Layout from '../layouts/Layout.astro';
 import HomeHero from '../components/HomeHero/HomeHero.astro';
 import IntroImage from '../components/IntroImage/IntroImage.astro';
@@ -8,6 +9,8 @@ import ContactInfo from '../components/ContactInfo/ContactInfo.astro';
 ---
 
 <Layout title = "Toride Escuela de Artes Marciales" description = "Escuela de Artes Marciales en Barcelona en el barrio de Fort Pienc. Clases de Kickboxing y defensa personal para todas las edades.">
+
+    <Preloader client:only="react" active={true} />
 
 	<HomeHero 
 		title1 = "Escuela de"
