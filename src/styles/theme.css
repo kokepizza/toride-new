@@ -71,7 +71,7 @@ button {
 }
 
 ::view-transition-group(*) {
-  animation-duration: 1s;
+  animation-duration: .8s;
 }
 
 /* Estilos base */
