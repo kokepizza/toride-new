@@ -7,9 +7,9 @@
 .form select,
 .form textarea {
   grid-column: span 4;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1rem;
   border: 1px solid var(--main-color);
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   font-family: inherit;
   font-size: 1rem;
 }
@@ -30,12 +30,15 @@
   display: none;
 }
 
-@media (min-width: 768px) {
-  .form {
-    grid-column: span 8;
-  }
+.form-status {
+  grid-column: span 4;
+  text-align: center;
+}
 
-  .form textarea {
+@media (min-width: 768px) {
+  .form,
+  .form textarea,
+  .form-status {
     grid-column: span 8;
   }
 
@@ -48,33 +51,14 @@
 }
 
 @media (min-width: 1024px) {
-  .form {
+  .form,
+  .form textarea,
+  .form-status {
     grid-column: span 12;
   }
 
   .form input,
   .form select {
-    grid-column: span 5;
+    grid-column: span 6;
   }
-
-  .form input:nth-child(1),
-  .form input:nth-child(3) {
-    grid-column: 2 / span 5;
-  }
-
-  .form textarea {
-    grid-column: 2 / span 10;
-  }
-}
-
-@media (min-width:768px){
-    .intro-center {
-        grid-column: 2 / span 6;
-    }
-}
-
-@media (min-width:1024px){
-    .intro-center {
-        grid-column: 4 / span 6;
-    }
 }

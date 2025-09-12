@@ -3,58 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import ContactInfo from '../components/ContactInfo/ContactInfo.astro';
 import Form from '../components/Form/Form.astro';
 import Hero from '../components/Hero/Hero.astro';
-import Shop from '../components/Shop/Shop.astro';
-
-const products = [
-    {
-        name: "Suscripción Peques",
-        price: "29,99€",
-        image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=2070&q=80",
-        link: "#",
-    },
-    {
-        name: "Suscripción Infantil",
-        price: "39,99€",
-        image: "https://images.unsplash.com/photo-1495562569060-2eec283d3391?auto=format&fit=crop&w=2070&q=80",
-        link: "#",
-    },
-    {
-        name: "Suscripción Adultos",
-        price: "49,99€",
-        image: "https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=2070&q=80",
-        link: "#",
-    },
-    {
-        name: "Suscripción Junior",
-        price: "34,99€",
-        image: "https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=2070&q=80",
-        link: "#",
-    },
-    {
-        name: "Suscripción Teen",
-        price: "44,99€",
-        image: "https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=2070&q=80",
-        link: "#",
-    },
-    {
-        name: "Suscripción Pro",
-        price: "59,99€",
-        image: "https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=2070&q=80",
-        link: "#",
-    },
-    {
-        name: "Suscripción Elite",
-        price: "69,99€",
-        image: "https://images.unsplash.com/photo-1495562569060-2eec283d3391?auto=format&fit=crop&w=2070&q=80",
-        link: "#",
-    },
-    {
-        name: "Suscripción Master",
-        price: "79,99€",
-        image: "https://images.unsplash.com/photo-1485217988980-11786ced9454?auto=format&fit=crop&w=2070&q=80",
-        link: "#",
-    }
-];
 ---
 
 <Layout>
@@ -71,13 +19,11 @@ const products = [
 		dark = {false}
 	 />
 
-	<Form 
+	<Form
 		title = "Formulario"
 		subtitle = "Contacto"
 		content = "Si tienes cualquier duda o quieres contactar con nosotros para hacer una clase de prueba, llámanos o rellena el formulario de contacto y te responderemos lo más pronto posible."
 		dark = {false}
 	/>
-
-	<!-- <Shop title="Suscripciones" subtitle="por edades" products={products} /> -->
 
 </Layout>
