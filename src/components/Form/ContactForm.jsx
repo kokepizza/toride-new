@@ -35,7 +35,6 @@ export default function ContactForm({ subjectBase = "Web" }) {
       method="POST"
       onSubmit={handleSubmit}
       className="form grid"
-      id="contact-form"
     >
       <input
         type="hidden"
