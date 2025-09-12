@@ -9,7 +9,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/netlify": "^6.5.10",
     "@astrojs/react": "^4.3.0",
     "@hcaptcha/react-hcaptcha": "^1.12.1",
     "@types/react": "^19.1.10",
