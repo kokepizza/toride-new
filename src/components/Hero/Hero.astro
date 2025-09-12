@@ -10,11 +10,13 @@ const {
 } = Astro.props;
 ---
 
-<section class="hero-wrapper">
+<section class={`hero-wrapper ${dark ? "dark" : "light"}`}>
   <div 
-    class={`hero ${rounded ? "rounded" : ""} ${dark ? "dark" : "light"}`} 
+    class={`hero ${rounded ? "rounded" : ""}`} 
     style={`--hero-bg-image: url('${bgImage}');`}
   >
-    <h1>{title1} <br /> <span>{title2}</span></h1>
+    <h1>{title1} <br />
+      <span>{title2}</span>
+    </h1>
   </div>
 </section>

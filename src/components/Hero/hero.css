@@ -1,9 +1,18 @@
-/* capa base negra para cubrir esquinas redondeadas */
+/* fondo por defecto */
 .hero-wrapper {
-  background-color: var(--black);
   width: 100dvw;
   height: 70dvh;
   position: relative;
+  transition: background-color 0.3s ease;
+}
+
+/* fondo según tema */
+.hero-wrapper.light {
+  background-color: var(--white);
+}
+
+.hero-wrapper.dark {
+  background-color: var(--black);
 }
 
 /* hero interior */
@@ -62,15 +71,15 @@
   color: transparent;
 }
 
-/* light/dark */
-.hero.light {
-  --hero-text-color: var(--white);
-  --hero-overlay-color: var(--black);
-}
-
-.hero.dark {
+/* light/dark para hero */
+.hero-wrapper.light .hero {
   --hero-text-color: var(--black);
   --hero-overlay-color: var(--white);
+}
+
+.hero-wrapper.dark .hero {
+  --hero-text-color: var(--white);
+  --hero-overlay-color: var(--black);
 }
 
 @media (min-width: 1024px) {
