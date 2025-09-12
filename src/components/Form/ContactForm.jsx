@@ -1,15 +1,25 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import "./form.css";
 import "../Button/button.css";
 
 export default function ContactForm({ subjectBase = "Web" }) {
   const [status, setStatus] = useState("");
   const [reason, setReason] = useState("");
+  const hcaptchaRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
+
+    // añadir el token de hCaptcha
+    const token = hcaptchaRef.current.getToken();
+    if (!token) {
+      setStatus("⚠️ Por favor, verifica que no eres un robot.");
+      return;
+    }
+    formData.append("h-captcha-response", token);
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -22,6 +32,7 @@ export default function ContactForm({ subjectBase = "Web" }) {
         setStatus("✅ ¡Mensaje enviado con éxito!");
         form.reset();
         setReason("");
+        hcaptchaRef.current.resetCaptcha();
       } else {
         setStatus("❌ Hubo un error, inténtalo de nuevo.");
       }
@@ -31,11 +42,7 @@ export default function ContactForm({ subjectBase = "Web" }) {
   };
 
   return (
-    <form
-      method="POST"
-      onSubmit={handleSubmit}
-      className="form grid"
-    >
+    <form method="POST" onSubmit={handleSubmit} className="form grid">
       <input
         type="hidden"
         name="access_key"
@@ -47,35 +54,11 @@ export default function ContactForm({ subjectBase = "Web" }) {
         value={`${subjectBase} - ${reason || "Consulta general"}`}
       />
 
-      <input
-        type="text"
-        id="name"
-        name="name"
-        placeholder="Nombre completo"
-        required
-      />
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Correo electrónico"
-        required
-      />
-      <input
-        type="tel"
-        id="phone"
-        name="phone"
-        placeholder="Teléfono si prefieres WhatsApp"
-        pattern="[0-9]{9}"
-      />
+      <input type="text" name="name" placeholder="Nombre completo" required />
+      <input type="email" name="email" placeholder="Correo electrónico" required />
+      <input type="tel" name="phone" placeholder="Teléfono si prefieres WhatsApp" pattern="[0-9]{9}" />
 
-      <select
-        id="reason"
-        name="reason"
-        required
-        value={reason}
-        onChange={(e) => setReason(e.target.value)}
-      >
+      <select name="reason" required value={reason} onChange={(e) => setReason(e.target.value)}>
         <option value="">Selecciona una opción</option>
         <option value="Prueba">Quiero una clase de prueba gratuita</option>
         <option value="Programas">Información sobre los programas de entrenamiento</option>
@@ -84,20 +67,18 @@ export default function ContactForm({ subjectBase = "Web" }) {
         <option value="Otro">Otro</option>
       </select>
 
-      <textarea
-        name="message"
-        id="message"
-        placeholder="Escribe tu mensaje"
-        style={{ resize: "none" }}
-        required
-      ></textarea>
+      <textarea name="message" placeholder="Escribe tu mensaje" style={{ resize: "none" }} required></textarea>
 
-      <div
-        id="form-status"
-        className="form-status"
-      >
-        {status}
+      {/* HCaptcha con clase para grid */}
+      <div className="form-captcha grid-span-full">
+        <HCaptcha
+          sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+          ref={hcaptchaRef}
+          onVerify={() => {}}
+        />
       </div>
+
+      <div id="form-status" className="form-status">{status}</div>
 
       <button className="button" type="submit">
         <span>enviar</span>
