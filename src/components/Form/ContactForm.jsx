@@ -6,54 +6,59 @@ import "../Button/button.css";
 export default function ContactForm({ subjectBase = "Web" }) {
   const [status, setStatus] = useState("");
   const [reason, setReason] = useState("");
+  const [captchaToken, setCaptchaToken] = useState(null);
   const hcaptchaRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
 
-    // añadir el token de hCaptcha
-    const token = hcaptchaRef.current.getToken();
-    if (!token) {
+    if (!captchaToken) {
       setStatus("⚠️ Por favor, verifica que no eres un robot.");
       return;
     }
-    formData.append("h-captcha-response", token);
+
+    const form = e.target;
+
+    const payload = {
+      access_key: "7f24ef27-3e0a-46c1-92a2-3b4343856dd3",
+      subject: `${subjectBase} - ${reason || "Consulta general"}`,
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      message: form.message.value,
+      "h-captcha-response": captchaToken,
+    };
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
       });
+
+      const data = await res.json();
 
       if (res.ok) {
         setStatus("✅ ¡Mensaje enviado con éxito!");
         form.reset();
         setReason("");
+        setCaptchaToken(null);
         hcaptchaRef.current.resetCaptcha();
       } else {
-        setStatus("❌ Hubo un error, inténtalo de nuevo.");
+        console.error(data); // para ver el error exacto
+        setStatus(`❌ Error: ${data.message || "inténtalo de nuevo"}`);
       }
     } catch (err) {
+      console.error(err);
       setStatus("⚠️ Error de conexión, revisa tu red.");
     }
   };
 
   return (
-    <form method="POST" onSubmit={handleSubmit} className="form grid">
-      <input
-        type="hidden"
-        name="access_key"
-        value="7f24ef27-3e0a-46c1-92a2-3b4343856dd3"
-      />
-      <input
-        type="hidden"
-        name="subject"
-        value={`${subjectBase} - ${reason || "Consulta general"}`}
-      />
-
+    <form onSubmit={handleSubmit} className="form grid">
       <input type="text" name="name" placeholder="Nombre completo" required />
       <input type="email" name="email" placeholder="Correo electrónico" required />
       <input type="tel" name="phone" placeholder="Teléfono si prefieres WhatsApp" pattern="[0-9]{9}" />
@@ -69,18 +74,17 @@ export default function ContactForm({ subjectBase = "Web" }) {
 
       <textarea name="message" placeholder="Escribe tu mensaje" style={{ resize: "none" }} required></textarea>
 
-      {/* HCaptcha con clase para grid */}
       <div className="form-captcha grid-span-full">
         <HCaptcha
           sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
           ref={hcaptchaRef}
-          onVerify={() => {}}
+          onVerify={(token) => setCaptchaToken(token)}
         />
       </div>
 
       <div id="form-status" className="form-status">{status}</div>
 
-      <button className="button" type="submit">
+      <button className="button" type="submit" disabled={!captchaToken}>
         <span>enviar</span>
         <svg viewBox="0 0 23 15.9" width="20">
           <path d="M14.9,8.7H1c-.4,0-.8-.3-.8-.8s.3-.8.8-.8h13.8c.4,0,.8.3.8.8s-.3.8-.8.8h0Z" />
